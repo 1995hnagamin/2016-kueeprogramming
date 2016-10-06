@@ -94,6 +94,11 @@ int main(void) {
   mat_vec(A, b_2, v_out); vec_print(v_out);
   mat_vec(A, b_3, v_out); vec_print(v_out);
   mat_mlt(A, A, m_out); mat_print(m_out);
+
+  Matrix AA; mat_mlt(A, A, AA);
+  Vector Ab1; mat_vec(A, b_1, Ab1);
+  Vector AA_b1; mat_vec(AA, b_1, AA_b1); vec_print(AA_b1);
+  Vector A_Ab1; mat_vec(A, Ab1, A_Ab1); vec_print(A_Ab1);
   return 0;
 }
 
