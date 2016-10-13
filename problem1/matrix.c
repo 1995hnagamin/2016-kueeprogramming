@@ -70,12 +70,12 @@ Vector mult_mat_by_vec(Matrix m, Vector v) {
 }
 
 Matrix mult_mat_by_mat(Matrix a, Matrix b) {
-  assert();
-  Matrix value = mat_alloc( , );
-  for (size_t i = 0; i < ; ++i) {
-    for (size_t j = 0; j < ; ++j) {
+  assert(a.column == b.row);
+  Matrix value = mat_alloc(a.row , b.column);
+  for (size_t i = 0; i < a.row; ++i) {
+    for (size_t j = 0; j < b.column; ++j) {
       Element sum = 0;
-      for (size_t k = 0; k < ; ++k) {
+      for (size_t k = 0; k < a.column; ++k) {
         sum += a.ptr[i][k] * b.ptr[k][j];
       }
       value.ptr[i][j] = sum;
