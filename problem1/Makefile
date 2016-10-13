@@ -2,11 +2,14 @@
 
 CFLAGS += -std=c99
 
-all: 1 2
+EXECUTABLES = 1 2
+OBJS = matrix.o
+
+all: $(EXECUTABLES)
 
 matrix.o: matrix.h
 
 2: matrix.o
 
 clean:
-	rm 1 2 matrix.o
+	rm -f $(EXECUTABLES) $(OBJS)
