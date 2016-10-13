@@ -72,12 +72,15 @@ Matrix mult_mat_by_mat(Matrix a, Matrix b) {
   assert(a.columns == b.rows);
   Matrix value = mat_alloc(a.rows , b.columns);
   for (size_t i = 0; i < a.rows; ++i) {
-    for (size_t j = 0; j < b.columns; ++j) {
-      Element sum = 0;
-      for (size_t k = 0; k < a.columns; ++k) {
-        sum += a.ptr[i][k] * b.ptr[k][j];
+    for (size_t j = 0; j < a.columns; ++j) {
+      value.ptr[i][j] = 0;
+    }
+  }
+  for (size_t i = 0; i < a.rows; ++i) {
+    for (size_t k = 0; k < a.columns; ++k) {
+      for (size_t j = 0; j < b.columns; ++j) {
+        value.ptr[i][j] += a.ptr[i][k] * b.ptr[k][j];
       }
-      value.ptr[i][j] = sum;
     }
   }
   return value;
