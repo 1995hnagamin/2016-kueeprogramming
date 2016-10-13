@@ -6,20 +6,23 @@
 typedef double Element;
 
 typedef struct {
-  size_t row;
-  size_t column;
+  size_t rows;
+  size_t columns;
   Element **ptr;
 } Matrix;
 
-Matrix mat_alloc(size_t m, size_t n) {
-  Element *base_ptr = malloc(sizeof(Element) * m * n);
+Matrix mat_alloc(size_t r, size_t c) {
+  Element *base_ptr = malloc(sizeof(Element) * r * c);
   assert(base_ptr);
-  Element **rows = malloc(sizeof(Element*) * m);
+  Element **rows = malloc(sizeof(Element*) * r);
   assert(rows);
-  for (size_t i = 0; i < m; ++i) {
-    rows[i] = base_ptr + i * m;
+  for (size_t i = 0; i < r; ++i) {
+    rows[i] = base_ptr + i * c;
   }
-  Matrix mat = { m, n, rows };
+  Matrix mat;
+  mat.rows = r;
+  mat.columns = c;
+  mat.ptr = rows;
   return mat;
 }
 
@@ -28,11 +31,11 @@ void mat_free(Matrix mat) {
   free(mat.ptr);
 }
 
-Matrix mat_init(size_t m, size_t n, Element const *arr) {
-  Matrix mat = mat_alloc(m, n);
-  for (size_t i = 0; i < m; ++i) {
-    for (size_t j = 0; j < n; ++j) {
-      mat.ptr[i][j] = arr[i * n + j];
+Matrix mat_init(size_t r, size_t c, Element const *arr) {
+  Matrix mat = mat_alloc(r, c);
+  for (size_t i = 0; i < r; ++i) {
+    for (size_t j = 0; j < c; ++j) {
+      mat.ptr[i][j] = arr[i * c + j];
     }
   }
   return mat;
@@ -47,7 +50,9 @@ typedef struct {
 Vector vec_alloc(size_t size) {
   Element *ptr = malloc(sizeof(Element) * size);
   assert(ptr);
-  Vector vec = { size, ptr };
+  Vector vec;
+  vec.size = size;
+  vec.ptr = ptr;
   return vec;
 }
 
@@ -58,11 +63,11 @@ Vector vec_free(Vector vec) {
 
 
 Vector mult_mat_by_vec(Matrix m, Vector v) {
-  assert(m.column == v.size);
-  Vector value = vec_alloc(v.size);
-  for (size_t i = 0; i < m.row; ++i) {
+  assert(m.columns == v.size);
+  Vector value = vec_alloc(m.rows);
+  for (size_t i = 0; i < m.rows; ++i) {
     Element sum = 0;
-    for (size_t j = 0; j < m.column; ++j) {
+    for (size_t j = 0; j < m.columns; ++j) {
       sum += m.ptr[i][j] * v.ptr[j];
     }
     value.ptr[i] = sum;
@@ -71,12 +76,12 @@ Vector mult_mat_by_vec(Matrix m, Vector v) {
 }
 
 Matrix mult_mat_by_mat(Matrix a, Matrix b) {
-  assert(a.column == b.row);
-  Matrix value = mat_alloc(a.row , b.column);
-  for (size_t i = 0; i < a.row; ++i) {
-    for (size_t j = 0; j < b.column; ++j) {
+  assert(a.columns == b.rows);
+  Matrix value = mat_alloc(a.rows , b.columns);
+  for (size_t i = 0; i < a.rows; ++i) {
+    for (size_t j = 0; j < b.columns; ++j) {
       Element sum = 0;
-      for (size_t k = 0; k < a.column; ++k) {
+      for (size_t k = 0; k < a.columns; ++k) {
         sum += a.ptr[i][k] * b.ptr[k][j];
       }
       value.ptr[i][j] = sum;
@@ -86,15 +91,15 @@ Matrix mult_mat_by_mat(Matrix a, Matrix b) {
 }
 
 void mat_print(Matrix mat) {
-  for (size_t i = 0; i < mat.row; ++i) {
+  for (size_t i = 0; i < mat.rows; ++i) {
     putchar(i > 0 ? ' ' : '[');
-    for (size_t j = 0; j < mat.column; ++j) {
+    for (size_t j = 0; j < mat.columns; ++j) {
       if (j > 0) {
         printf(", ");
       }
       printf("%f", mat.ptr[i][j]);
     }
-    putchar(i < mat.column - 1 ? ' ' : ']');
+    putchar(i < mat.rows - 1 ? ' ' : ']');
     putchar('\n');
   }
 }
