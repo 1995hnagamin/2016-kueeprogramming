@@ -85,6 +85,20 @@ Matrix mult_mat_by_mat(Matrix a, Matrix b) {
   return value;
 }
 
+void mat_print(Matrix mat) {
+  for (size_t i = 0; i < mat.row; ++i) {
+    putchar(i > 0 ? ' ' : '[');
+    for (size_t j = 0; j < mat.column; ++j) {
+      if (j > 0) {
+        printf(", ");
+      }
+      printf("%f", mat.ptr[i][j]);
+    }
+    putchar(i < mat.column - 1 ? ' ' : ']');
+    putchar('\n');
+  }
+}
+
 int main() {
   Element mat_v[5][5] = {
     { 1, 2, 3, 4 },
@@ -93,5 +107,6 @@ int main() {
     { 13, 14, 15, 16 }
   };
   Matrix mat = MAT_INIT(5, 5, mat_v);
+  print_mat(mat);
   return 0;
 }
