@@ -18,7 +18,14 @@ int main(void) {
   double const init_pos[6] = { 1, 0, 0, 0, 0, 0 };
   Vector v = vec_init(6, init_pos);
   for (int t = 0; t <= 60; ++t) {
+    printf("t = %d:\n", t);
     vec_print(v);
+    double sum = 0;
+    for (size_t i = 0; i < v.size; ++i) {
+      sum += v.ptr[i];
+    }
+    printf("sum: %f\n\n", sum);
+
     Vector w = mult_mat_by_vec(T, v);
     vec_free(v);
     v = w;
