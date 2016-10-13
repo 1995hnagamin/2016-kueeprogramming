@@ -98,6 +98,17 @@ Matrix mult_mat_by_mat(Matrix a, Matrix b) {
   return value;
 }
 
+void vec_print(Vector vec) {
+  printf("(");
+  for (size_t i = 0; i < vec.size; ++i) {
+    if (i > 0) {
+      printf(", ");
+    }
+    printf("%f", vec.ptr[i]);
+  }
+  printf(")\n");
+}
+
 void mat_print(Matrix mat) {
   for (size_t i = 0; i < mat.rows; ++i) {
     putchar(i > 0 ? ' ' : '[');
