@@ -2,7 +2,7 @@
 #include <math.h>
 #include <assert.h>
 #include <stdlib.h>
-#include "matrix.c"
+#include "matrix.h"
 
 int main(void) {
   double c = 0.5, s = 0.05;

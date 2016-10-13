@@ -1,10 +1,8 @@
-typedef double Element;
-
-typedef struct {
-  size_t rows;
-  size_t columns;
-  Element **ptr;
-} Matrix;
+#include <stdio.h>
+#include <math.h>
+#include <assert.h>
+#include <stdlib.h>
+#include "matrix.h"
 
 Matrix mat_alloc(size_t r, size_t c) {
   Element *base_ptr = malloc(sizeof(Element) * r * c);
@@ -35,12 +33,6 @@ Matrix mat_init(size_t r, size_t c, Element const *arr) {
   }
   return mat;
 }
-#define MAT_INIT(m, n, arr) mat_init(m, n, &(arr[0][0]))
-
-typedef struct {
-  size_t size;
-  Element *ptr;
-} Vector;
 
 Vector vec_alloc(size_t size) {
   Element *ptr = malloc(sizeof(Element) * size);
