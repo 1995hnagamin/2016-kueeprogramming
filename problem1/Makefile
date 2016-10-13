@@ -1,8 +1,9 @@
 .PHONY: all clean
 
-CFLAGS += -std=c99
+CFLAGS += -std=c99 -Wall -Wpedantic
+LDLIBS += -lm
 
-EXECUTABLES = 1 2
+EXECUTABLES = 1 2 3
 OBJS = matrix.o
 
 all: $(EXECUTABLES)
