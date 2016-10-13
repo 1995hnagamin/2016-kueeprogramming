@@ -30,9 +30,9 @@ void mat_free(Matrix mat) {
 
 Matrix mat_init(size_t m, size_t n, Element const *arr) {
   Matrix mat = mat_alloc(m, n);
-  for (int j = 0; j < n; ++j) {
-    for (int i = 0; i < m; ++i) {
-      mat.ptr[i][j] = arr[i * m + j];
+  for (size_t i = 0; i < m; ++i) {
+    for (size_t j = 0; j < n; ++j) {
+      mat.ptr[i][j] = arr[i * n + j];
     }
   }
   return mat;
