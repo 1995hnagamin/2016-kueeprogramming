@@ -111,7 +111,20 @@ int main() {
     { 11, 12, 13, 14, 15 },
     { 16, 17, 18, 19, 20 },
   };
-  Matrix mat = MAT_INIT(4, 5, mat_v);
-  print_mat(mat);
+  Element mat_w[5][3] = {
+    {  1,  2,  3 },
+    {  4,  5,  6 },
+    {  7,  8,  9 },
+    { 10, 11, 12 },
+    { 13, 14, 15 },
+  };
+  Matrix v = MAT_INIT(4, 5, mat_v);
+  mat_print(v);
+  Matrix w = MAT_INIT(5, 3, mat_w);
+  mat_print(w);
+  Matrix mat = mult_mat_by_mat(v, w);
+  printf("%zu x %zu\n", mat.rows, mat.columns);
+  mat_print(mat);
+  mat_free(mat);
   return 0;
 }
