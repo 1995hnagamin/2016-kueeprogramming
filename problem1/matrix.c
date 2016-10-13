@@ -100,13 +100,13 @@ void mat_print(Matrix mat) {
 }
 
 int main() {
-  Element mat_v[5][5] = {
-    { 1, 2, 3, 4 },
-    { 5, 6, 7, 8 },
-    { 9, 10, 11, 12 },
-    { 13, 14, 15, 16 }
+  Element mat_v[4][5] = {
+    { 1, 2, 3, 4, 5 },
+    { 6, 7, 8, 9, 10 },
+    { 11, 12, 13, 14, 15 },
+    { 16, 17, 18, 19, 20 },
   };
-  Matrix mat = MAT_INIT(5, 5, mat_v);
+  Matrix mat = MAT_INIT(4, 5, mat_v);
   print_mat(mat);
   return 0;
 }
