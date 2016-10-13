@@ -59,11 +59,9 @@ Vector vec_init(size_t size, Element const * src) {
   return vec;
 }
 
-Vector vec_free(Vector vec) {
+void vec_free(Vector vec) {
   free(vec.ptr);
 }
-
-
 
 Vector mult_mat_by_vec(Matrix m, Vector v) {
   assert(m.columns == v.size);
