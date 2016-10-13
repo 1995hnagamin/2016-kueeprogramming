@@ -56,6 +56,14 @@ Vector vec_alloc(size_t size) {
   return vec;
 }
 
+Vector vec_init(size_t size, Element const * src) {
+  Vector vec = vec_alloc(size);
+  for (size_t i = 0; i < size; ++i) {
+    vec.ptr[i] = src[i];
+  }
+  return vec;
+}
+
 Vector vec_free(Vector vec) {
   free(vec.ptr);
 }
