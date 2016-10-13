@@ -58,6 +58,7 @@ Vector vec_free(Vector vec) {
 
 
 Vector mult_mat_by_vec(Matrix m, Vector v) {
+  assert(m.column == v.size);
   Vector value = vec_alloc(v.size);
   for (size_t i = 0; i < m.row; ++i) {
     Element sum = 0;
