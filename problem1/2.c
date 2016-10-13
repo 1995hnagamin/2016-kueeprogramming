@@ -23,5 +23,7 @@ int main(void) {
     vec_free(v);
     v = w;
   }
+  mat_free(T);
+  vec_free(v);
   return 0;
 }
