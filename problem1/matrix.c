@@ -28,7 +28,7 @@ void mat_free(Matrix mat) {
   free(mat.ptr);
 }
 
-Matrix mat_init(size_t m, size_t n, Element *arr) {
+Matrix mat_init(size_t m, size_t n, Element const *arr) {
   Matrix mat = mat_alloc(m, n);
   for (int j = 0; j < n; ++j) {
     for (int i = 0; i < m; ++i) {
