@@ -92,7 +92,7 @@ void vec_print(Vector vec) {
     if (i > 0) {
       printf(", ");
     }
-    printf("%f", vec.ptr[i]);
+    printf("%.8lf", vec.ptr[i]);
   }
   printf(")\n");
 }
@@ -104,7 +104,7 @@ void mat_print(Matrix mat) {
       if (j > 0) {
         printf(", ");
       }
-      printf("%f", mat.ptr[i][j]);
+      printf("%.8lf", mat.ptr[i][j]);
     }
     putchar(i < mat.rows - 1 ? ' ' : ']');
     putchar('\n');

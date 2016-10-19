@@ -29,7 +29,7 @@ Result iterate(Func f, double init, double epsilon, int limit) {
 void newton(Func f, double init) {
   Result res = iterate(f, init, 1e-9, 1000);
   if (res.conversed) {
-    printf("Answer: %f\n", res.answer);
+    printf("Answer: %.9lf\n", res.answer);
   } else {
     printf("Failed\n");
   } 

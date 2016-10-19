@@ -24,7 +24,7 @@ int main(void) {
     for (size_t i = 0; i < v.size; ++i) {
       sum += v.ptr[i];
     }
-    printf("sum: %f\n\n", sum);
+    printf("sum: %.9lf\n\n", sum);
 
     Vector w = mult_mat_by_vec(T, v);
     vec_free(v);

@@ -32,7 +32,7 @@ void vec_print(Vector v) {
     if (i > 0) {
       printf(", ");
     }
-    printf("%f", v[i]);
+    printf("%.8lf", v[i]);
   }
   printf(")\n");
 }
@@ -45,7 +45,7 @@ void mat_print(Matrix  mat) {
       if (j > 0) {
         printf(", ");
       }
-      printf("%f", mat[i][j]);
+      printf("%.8lf", mat[i][j]);
     }
     putchar(i < N - 1 ? ' ' : ']');
     putchar('\n');
