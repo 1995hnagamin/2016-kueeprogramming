@@ -4,6 +4,17 @@
 #include <stdlib.h>
 #include "matrix.h"
 
+void vec_print_csv(Vector vec) {
+  for (size_t i = 0; i < vec.size; ++i) {
+    printf("%.8lf,", vec.ptr[i]);
+  }
+  double sum = 0;
+  for (size_t i = 0; i < vec.size; ++i) {
+      sum += vec.ptr[i];
+  }
+  printf("%.9lf\n", sum);
+}
+
 int main(void) {
   double c = 0.5, s = 0.05;
   double const transition_arr[6][6] = {
@@ -17,15 +28,17 @@ int main(void) {
   Matrix T = MAT_INIT(6, 6, transition_arr);
   double const init_pos[6] = { 1, 0, 0, 0, 0, 0 };
   Vector v = vec_init(6, init_pos);
-  for (int t = 0; t <= 60; ++t) {
-    printf("t = %d:\n", t);
-    vec_print(v);
-    double sum = 0;
-    for (size_t i = 0; i < v.size; ++i) {
-      sum += v.ptr[i];
-    }
-    printf("sum: %.9lf\n\n", sum);
+  printf("s=%lf,c=%lf\n", s, c);
 
+  printf("t,");
+  for (int i = 0; i < 6; ++i) {
+    printf("%d,", i);
+  }
+  printf("sum\n");
+
+  for (int t = 0; t <= 60; ++t) {
+    printf("%d,", t);
+    vec_print_csv(v);
     Vector w = mult_mat_by_vec(T, v);
     vec_free(v);
     v = w;
