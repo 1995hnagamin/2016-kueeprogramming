@@ -15,8 +15,7 @@ void vec_print_csv(Vector vec) {
   printf("%.9lf\n", sum);
 }
 
-int main(void) {
-  double c = 0.5, s = 0.05;
+int simulate(double c, double s) {
   double const transition_arr[6][6] = {
     {s + (1-s)*(1-c), (1-s)*(1-c),           0,            0,           0,               0},
     {        (1-s)*c,           s, (1-s)*(1-c),            0,           0,               0},
@@ -45,5 +44,15 @@ int main(void) {
   }
   mat_free(T);
   vec_free(v);
+  return 0;
+}
+
+int main(void) {
+  simulate(0.5, 0.05);
+  simulate(0.5, 0.15);
+  simulate(0.5, 0.5);
+  simulate(0.7, 0.15);
+  simulate(0.5, 0.15);
+  simulate(0.45,0.15);
   return 0;
 }
