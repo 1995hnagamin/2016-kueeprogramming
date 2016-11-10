@@ -91,6 +91,20 @@ Matrix mult_mat_by_mat(Matrix a, Matrix b) {
   return value;
 }
 
+void mult_mat_by_scalar_dstly(Matrix *a, Element k) {
+  for (size_t i = 0; i < a->rows; ++i) {
+    for (size_t j = 0; j < a->columns; ++j) {
+      a->ptr[i][j] = k * a->ptr[i][j];
+    }
+  }
+}
+
+Matrix mult_mat_by_scalar(Matrix a, Element k) {
+  Matrix dup = mat_copy(a);
+  mult_mat_by_scalar_dstly(&dup, k);
+  return dup;
+}
+
 void vec_print(Vector vec) {
   printf("(");
   for (size_t i = 0; i < vec.size; ++i) {

@@ -34,3 +34,6 @@ Vector mult_mat_by_vec(Matrix, Vector);
 
 Matrix mult_mat_by_mat(Matrix, Matrix);
 
+Matrix mult_mat_by_scalar(Matrix, Element);
+
+void mult_mat_by_scalar_dstly(Matrix *, Element);
