@@ -34,6 +34,11 @@ Matrix mat_init(size_t r, size_t c, Element const *arr) {
   return mat;
 }
 
+Matrix mat_copy(Matrix m) {
+  Matrix dup = MAT_INIT(m.rows, m.columns, m.ptr);
+  return dup;
+}
+
 Vector vec_alloc(size_t size) {
   Element *ptr = malloc(sizeof(Element) * size);
   assert(ptr);

@@ -15,6 +15,8 @@ Vector vec_alloc(size_t);
 
 Matrix mat_alloc(size_t, size_t);
 
+Matrix mat_copy(Matrix);
+
 void vec_free(Vector);
 
 void mat_free(Matrix);
