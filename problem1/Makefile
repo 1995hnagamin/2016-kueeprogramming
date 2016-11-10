@@ -1,16 +1,19 @@
 .PHONY: all clean
 
-CFLAGS += -std=c99 -Wall -Wpedantic
+ROOTDIR = ..
+LIBDIR = $(ROOTDIR)/lib
+
+CFLAGS += -std=c99 -Wall -Wpedantic -I$(LIBDIR)
 LDLIBS += -lm
 
 EXECUTABLES = 1 2 3
-OBJS = matrix.o
 
 all: $(EXECUTABLES)
 
-matrix.o: matrix.h
+2: $(LIBDIR)/matrix.o
 
-2: matrix.o
+$(LIBDIR)/matrix.o:
+	$(MAKE) -C $(LIBDIR) $@
 
 clean:
 	rm -f $(EXECUTABLES) $(OBJS)
