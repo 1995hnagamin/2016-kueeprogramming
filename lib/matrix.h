@@ -45,3 +45,7 @@ void mult_mat_by_scalar_dstly(Matrix *, Element);
 Matrix add_mat_rows(Matrix, size_t,  Element, size_t);
 
 void add_mat_rows_dstly(Matrix *, size_t,  Element, size_t);
+
+Matrix mult_mat_row_by_scalar(Matrix, size_t, Element);
+
+void mult_mat_row_by_scalar_dstly(Matrix *, size_t, Element);

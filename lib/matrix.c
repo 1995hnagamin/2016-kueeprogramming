@@ -118,6 +118,18 @@ Matrix mult_mat_by_scalar(Matrix a, Element k) {
   return dup;
 }
 
+void mult_mat_row_by_scalar_dstly(Matrix *a, size_t i, Element k) {
+  for (size_t j = 0; j < a->columns; ++j) {
+    a->ptr[i][j] *= k;
+  }
+}
+
+Matrix mult_mat_row_by_scalar(Matrix a, size_t i, Element k) {
+  Matrix dup = mat_copy(a);
+  mult_mat_row_by_scalar_dstly(&dup, i, k);
+  return dup;
+}
+
 void add_mat_rows_dstly(Matrix *a, size_t src,  Element k, size_t dst) {
   assert(src != dst);
   for (size_t j = 0; j < a->columns; ++j) {
