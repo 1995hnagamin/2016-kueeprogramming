@@ -56,6 +56,11 @@ Vector vec_init(size_t size, Element const * src) {
   return vec;
 }
 
+Vector vec_copy(Vector v) {
+  Vector dup = vec_init(v.size, v.ptr);
+  return dup;
+}
+
 void vec_free(Vector vec) {
   free(vec.ptr);
 }
