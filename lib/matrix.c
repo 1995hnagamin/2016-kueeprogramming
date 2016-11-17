@@ -118,6 +118,19 @@ Matrix mult_mat_by_scalar(Matrix a, Element k) {
   return dup;
 }
 
+void add_mat_rows_dstly(Matrix *a, size_t src,  Element k, size_t dst) {
+  assert(src != dst);
+  for (size_t j = 0; j < a->columns; ++j) {
+    a->ptr[dst][j] += k * a->ptr[src][j];
+  }
+}
+
+Matrix add_mat_rows(Matrix a, size_t src, Element k, size_t dst) {
+  Matrix dup = mat_copy(a);
+  add_mat_rows_dstly(&dup, src, k, dst);
+  return dup;
+}
+
 void vec_print(Vector vec) {
   printf("(");
   for (size_t i = 0; i < vec.size; ++i) {
