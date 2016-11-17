@@ -28,6 +28,8 @@ Vector vec_init(size_t, Element const *);
 Matrix mat_init(size_t, size_t, Element const *);
 #define MAT_INIT(m, n, arr) mat_init(m, n, &(arr[0][0]))
 
+Vector vec_init_by_const(size_t, Element);
+
 void vec_print(Vector);
 
 void mat_print(Matrix);

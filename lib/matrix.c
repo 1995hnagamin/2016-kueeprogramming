@@ -56,6 +56,14 @@ Vector vec_init(size_t size, Element const * src) {
   return vec;
 }
 
+Vector vec_init_by_const(size_t size, Element x) {
+  Vector vec = vec_alloc(size);
+  for (size_t i = 0; i < size; ++i) {
+    vec.ptr[i] = x;
+  }
+  return vec;
+}
+
 Vector vec_copy(Vector v) {
   Vector dup = vec_init(v.size, v.ptr);
   return dup;
