@@ -10,7 +10,7 @@ int main(void) {
   double l_arr[3][3] = {
     { 1, 0, 0},
     {-1, 1, 0},
-    {-2, 3, 0}
+    {-2, 3, 1}
   };
   double b_arr[3] = { 9, -1, 2 };
   Matrix l = MAT_INIT(3, 3, l_arr);
