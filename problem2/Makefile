@@ -6,11 +6,13 @@ LIBDIR = $(ROOTDIR)/lib
 CFLAGS += -std=c99 -Wall -Wpedantic -I$(LIBDIR)
 LDLIBS += -lm
 
-EXECUTABLES = 1
+EXECUTABLES = 1 2
 
 all: $(EXECUTABLES)
 
 1: $(LIBDIR)/matrix.o
+
+2: $(LIBDIR)/matrix.o
 
 $(LIBDIR)/matrix.o:
 	$(MAKE) -C $(LIBDIR) $@
