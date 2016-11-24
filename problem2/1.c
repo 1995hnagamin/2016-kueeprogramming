@@ -47,6 +47,8 @@ int main(void) {
   Vector y = do_fw_subst(l, b);
   printf("[1]:\n");
   vec_print(y);
+  mat_free(l);
+  vec_free(b);
   vec_free(y);
 
   double u_arr[3][3] = {
@@ -61,6 +63,8 @@ int main(void) {
   Vector x = do_back_subst(u, c);
   printf("[2]:\n");
   vec_print(x);
+  mat_free(u);
+  vec_free(c);
   vec_free(x);
 
   return 0;
