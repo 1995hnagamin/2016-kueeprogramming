@@ -10,9 +10,9 @@ EXECUTABLES = 1 2
 
 all: $(EXECUTABLES)
 
-1: $(LIBDIR)/matrix.o
+1: $(LIBDIR)/matrix.o $(LIBDIR)/lu.o
 
-2: $(LIBDIR)/matrix.o
+2: $(LIBDIR)/matrix.o $(LIBDIR)/lu.o
 
 $(LIBDIR)/matrix.o:
 	$(MAKE) -C $(LIBDIR) $@

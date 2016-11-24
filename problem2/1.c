@@ -3,35 +3,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include "matrix.h"
-
-Vector do_fw_subst(Matrix l, Vector b) {
-  assert(l.columns == b.size);
-  Vector y = vec_copy(b);
-  for (size_t i = 0; i < b.size; ++i) {
-    for (size_t k = 0; i > 0 && k < i; ++k) {
-      y.ptr[i] -= l.ptr[i][k] * y.ptr[k];
-    }
-  }
-  return y;
-}
-
-Vector do_back_subst(Matrix u, Vector c) {
-  assert(u.columns == c.size);
-  size_t const n = c.size;
-  Vector x = vec_init_by_const(n, 0);
-
-  size_t i = n;
-  while (i != 0) {
-    --i;
-    Element sum = c.ptr[i];
-    for (size_t k = n - 1; k > i; --k) {
-      sum -= u.ptr[i][k] * x.ptr[k];
-    }
-    x.ptr[i] = sum / u.ptr[i][i];
-  }
-
-  return x;
-}
+#include "lu.h"
 
 int main(void) {
 
@@ -60,7 +32,7 @@ int main(void) {
   Matrix u = MAT_INIT(3, 3, u_arr);
   Vector c = vec_init(3, c_arr);
 
-  Vector x = do_back_subst(u, c);
+  Vector x = do_bw_subst(u, c);
   printf("[2]:\n");
   vec_print(x);
   mat_free(u);
