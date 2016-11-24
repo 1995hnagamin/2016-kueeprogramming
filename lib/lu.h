@@ -8,3 +8,4 @@ typedef struct {
 
 void lu_res_free(LU_result);
 LU_result do_LU_decomposition(Matrix);
+Vector solve_linear_system(Matrix, Vector);

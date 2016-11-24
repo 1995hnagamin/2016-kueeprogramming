@@ -72,3 +72,11 @@ void lu_res_free(LU_result res) {
   mat_free(res.L);
   mat_free(res.U);
 }
+
+Vector solve_linear_system(Matrix A, Vector b) {
+  LU_result res = do_LU_decomposition(A);
+  Vector Ux = do_fw_subst(res.L, b);
+  Vector x = do_bw_subst(res.U, Ux);
+  vec_free(Ux);
+  return x;
+}

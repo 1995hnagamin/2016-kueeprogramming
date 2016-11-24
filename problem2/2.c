@@ -29,6 +29,14 @@ int main(void) {
   printf("\nU = \n");
   mat_print(res.U);
 
+  double b_arr[3] = {9, -1, 2}; 
+  Vector b = vec_init(3, b_arr);
+  Vector x = solve_linear_system(A, b);
+  printf("\nx = \n");
+  vec_print(x);
+
+  vec_free(b);
+  vec_free(x);
   mat_free(A);
   lu_res_free(res);
 
