@@ -38,10 +38,14 @@ void get_inverse_of_H(size_t n) {
   }
 
   Matrix Hinv = inverse_mat(H);
+  printf("Hinv=\n");
+  mat_print(Hinv);
   
   Matrix A = mult_mat_by_mat(H, Hinv);
+  printf("H * Hinv =\n");
   mat_print(A);
   A = mult_mat_by_mat(Hinv, H);
+  printf("Hinv * H =\n");
   mat_print(A);
   
   mat_free(A);
