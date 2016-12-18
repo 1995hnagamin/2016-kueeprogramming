@@ -1,20 +1,28 @@
-let rec zipWith f xs ys =
-  match (xs, ys) with
-  | ([], []) -> []
-  | (x::xs, y::ys) -> (f x y)::(zipWith f xs ys)
-  | _ -> raise (invalid_arg "Different length")
+let mult_scalar_vector4 k (a, b, c, d) =
+  (k *. a, k *. b, k *. c, k *. d)
+let ( *: ) = mult_scalar_vector4
 
-let mult_scalar_vector k v = List.map (fun x -> k *. x) v
-let ( *: ) = mult_scalar_vector
+let plus_vector4 (a, b, c, d) (x, y, z, w) =
+  (a +. x, b +. y, c +. z, d +. w)
+let (+:) = plus_vector4
 
-let plus_vector v w = zipWith (+.) v w
-let (+:) = plus_vector
+let minus_vector4 v w =
+  v +: (-1.0 *: w)
+let (-:) = minus_vector4
 
-let minus_vector v w = v +: (-1.0 *: w)
-let (-:) = minus_vector
+let abs_vector4 (a, b, c, d) =
+  sqrt (List.fold_left (+.) 0.0 (List.map (fun x -> x *. x) [a; b; c; d]))
 
-let abs_vector v =
-  sqrt (List.fold_left (+.) 0.0 (List.map (fun x -> x *. x) v))
+let mult_scalar_vector2 k (a, b) =
+  (k *. a, k *. b)
+
+let plus_vector2 (a, b) (x, y) = (a +. x, b +. y)
+
+let minus_vector2 v w =
+  plus_vector2 v (mult_scalar_vector2 (-1.0) w)
+
+let abs_vector2 (a, b) =
+  sqrt (a *. a +. b *. b)
 
 let pi = 4.0 *. atan 1.0
 
