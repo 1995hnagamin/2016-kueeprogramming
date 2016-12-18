@@ -1,0 +1,3 @@
+set terminal png
+set output 'r_c.png'
+plot 'prob1.output' using 2:3
