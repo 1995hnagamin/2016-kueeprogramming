@@ -3,7 +3,7 @@
 ROOTDIR = ..
 
 EXECUTABLES = prob1.out
-GNUPLOTSCRIPTS = r_c.gnp
+GNUPLOTSCRIPTS = 1_r.gnp 1_error.gnp
 OUTPUTS = $(EXECUTABLES:%.out=%.dat)
 IMAGES = $(GNUPLOTSCRIPTS:%.gnp=%.png)
 
