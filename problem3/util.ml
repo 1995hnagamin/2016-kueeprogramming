@@ -67,13 +67,17 @@ let euler f = calcSSM f
 
 let simulate_with_euler f scale =
   let dt = 2.0 *. pi /. (float_of_int scale) in
-  let print (n, state) =
-    let (x, y, _, _) = state in
+  let modify (n, (x, y, _, _)) =
     let t = (float_of_int n) *. dt in
     let error = abs_vector2
       (minus_vector2 (x, y) (-1.0 *. cos(t), sin(t))) in
+    (t, x, y, error)
+  in
+  List.map modify (euler f dt (scale * 5) (0, (-1.0, 0.0, 0.0, 1.0)))
+
+let print_result result scale =
+  let print (t, x, y, error) =
     Printf.printf "%f\t%f\t%f\t%f\n" t x y error
   in
-  let result = euler f dt (scale * 5) (0, (-1.0, 0.0, 0.0, 1.0)) in
   print_string "#t x y error\n";
   List.iter print result
