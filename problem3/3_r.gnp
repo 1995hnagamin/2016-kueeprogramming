@@ -1,6 +1,6 @@
 set terminal png
-set output '1_r.png'
+set output '3_r.png'
 set size ratio -1
 # set xrange [-2:2]
 # set yrange [-2:2]
-plot 'prob1.dat' using 2:3 with lines
+plot 'prob3.dat' using 2:3 with lines
