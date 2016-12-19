@@ -30,6 +30,8 @@ all: $(EXECUTABLES) $(OUTPUTS) $(IMAGES)
 
 1_error.png : prob1.dat
 
+2_error.png : prob2.dat
+
 3_r.png : prob3_1.dat
 
 3_error.png : prob3_2.dat
