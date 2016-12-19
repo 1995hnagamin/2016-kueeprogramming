@@ -9,7 +9,7 @@ CFLAGS += -std=c99 -Wall -Wpedantic -I$(LIBDIR)
 LDLIBS += -lm
 
 OBJS = util.o heun.o
-EXECUTABLES = prob1 prob2 prob3_1 prob4_1
+EXECUTABLES = prob1 prob2 prob3_1 prob3_2 prob4_1
 GNUPLOTSCRIPTS = \
 	1_r.gnp 1_error.gnp \
 	2_error.gnp \
@@ -38,6 +38,8 @@ prob1 : util.o
 prob2 : util.o
 
 prob3_1 : util.o heun.o
+
+prob3_2 : util.o heun.o
 
 clean:
 	rm -f $(EXECUTABLES) $(OBJS) $(OUTPUTS) $(IMAGES)
