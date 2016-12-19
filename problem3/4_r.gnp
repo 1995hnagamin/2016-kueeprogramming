@@ -1,0 +1,4 @@
+set terminal png
+set output '4_r.png'
+set size ratio -1
+plot 'prob4_1.dat' using 2:3 with lines
