@@ -8,7 +8,7 @@ LIBDIR = $(ROOTDIR)/lib
 CFLAGS += -std=c99 -Wall -Wpedantic -I$(LIBDIR)
 LDLIBS += -lm
 
-OBJS = util.o
+OBJS = util.o heun.o
 EXECUTABLES = prob1 prob2 prob3_1 prob4_1
 GNUPLOTSCRIPTS = \
 	1_r.gnp 1_error.gnp \
@@ -37,7 +37,7 @@ prob1 : util.o
 
 prob2 : util.o
 
-prob3_1 : util.o
+prob3_1 : util.o heun.o
 
 clean:
 	rm -f $(EXECUTABLES) $(OBJS) $(OUTPUTS) $(IMAGES)
