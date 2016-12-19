@@ -8,8 +8,11 @@ LIBDIR = $(ROOTDIR)/lib
 CFLAGS += -std=c99 -Wall -Wpedantic -I$(LIBDIR)
 LDLIBS += -lm
 
-EXECUTABLES = prob1 prob2 prob3 prob4_r
-GNUPLOTSCRIPTS = 1_r.gnp 1_error.gnp 2_error.gnp 3_r.gnp
+EXECUTABLES = prob1 prob2 prob3_1 prob4_1
+GNUPLOTSCRIPTS = \
+	1_r.gnp 1_error.gnp \
+	2_error.gnp \
+	3_r.gnp 3_error.gnp
 OUTPUTS = $(EXECUTABLES:=.dat)
 IMAGES = $(GNUPLOTSCRIPTS:%.gnp=%.png)
 
@@ -24,6 +27,10 @@ all: $(EXECUTABLES) $(OUTPUTS) $(IMAGES)
 1_r.png : prob1.dat
 
 1_error.png : prob1.dat
+
+3_r.png : prob3_1.dat
+
+3_error.png : prob3_2.dat
 
 clean:
 	rm -f $(EXECUTABLES) $(OBJS) $(OUTPUTS) $(IMAGES)
