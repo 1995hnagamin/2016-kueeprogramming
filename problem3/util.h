@@ -16,4 +16,8 @@ double vy_(State);
 
 void calc(State, State);
 
+typedef void StepFunc(double, State, State);
+
+double calc_max_error(int, StepFunc);
+
 #endif
