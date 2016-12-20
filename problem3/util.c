@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdio.h>
 #include "util.h"
 
 double square(double x) {
@@ -17,6 +18,24 @@ double vy_(State s) { return s[3]; }
 void calc(State src, State dst) {
   dst[0] = vx_(src); dst[1] = vy_(src);
   dst[2] = vy_(src), dst[3] = -vx_(src);
+}
+
+void calc_and_print(StepFunc step, int scale, int period) {
+  double const h = 2 * M_PI / scale;
+
+  State Y = {-1, 0, 0, 1};
+  for (int n = 0; n <= scale * period ; ++n) {
+    double const t = h * n;
+    double const error = sqrt(
+        square(x_(Y) + cos(t)) + square(y_(Y) - sin(t)));
+    printf("%lf\t%lf\t%lf\t%lf\n", t, x_(Y), y_(Y), error);
+
+    double temp[4];
+    step(h, Y, temp);
+    for (int i = 0; i < 4; ++i) {
+      Y[i] = temp[i];
+    }
+  }
 }
 
 double calc_max_error(int scale, StepFunc step) {

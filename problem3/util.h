@@ -18,6 +18,8 @@ void calc(State, State);
 
 typedef void StepFunc(double, State, State);
 
+void calc_and_print(StepFunc, int, int);
+
 double calc_max_error(int, StepFunc);
 
 #endif
