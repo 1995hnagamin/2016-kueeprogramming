@@ -8,7 +8,7 @@ LIBDIR = $(ROOTDIR)/lib
 CFLAGS += -std=c99 -Wall -Wpedantic -I$(LIBDIR)
 LDLIBS += -lm
 
-OBJS = util.o heun.o runge_kutta.o
+OBJS = util.o euler.o heun.o runge_kutta.o
 EXECUTABLES = prob1 prob2 prob3_1 prob3_2 prob4_1 prob4_2
 GNUPLOTSCRIPTS = \
 	1_r.gnp 1_error.gnp \
@@ -40,9 +40,9 @@ all: $(EXECUTABLES) $(OUTPUTS) $(IMAGES)
 
 4_error.png : prob4_2.dat
 
-prob1 : util.o
+prob1 : util.o euler.o
 
-prob2 : util.o
+prob2 : util.o euler.o
 
 prob3_1 : util.o heun.o
 
