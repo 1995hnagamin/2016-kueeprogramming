@@ -62,8 +62,9 @@ int main(void) {
   normalize_vec_dstly(&u_0);
 
   EigenPair p = do_power_method(A, u_0, 1e-15);
-  printf("Eigenvalue: %lf\n", p.value);
-  vec_print(p.vector);
+  fprintf(stderr, "Eigenvalue: %.8lf\n", p.value);
+  fprintf(stderr, "Eigenvector: ");
+  vec_fprint(stderr, p.vector);
 
   mat_free(A);
   vec_free(u_0);
