@@ -4,8 +4,9 @@
 
 ROOTDIR = ..
 LIBDIR = $(ROOTDIR)/lib
+INCDIR += -I$(ROOTDIR)/include
 
-CFLAGS += -std=c99 -Wall -Wpedantic -I$(LIBDIR)
+CFLAGS += -std=c99 -Wall -Wpedantic $(INCDIR)
 LDLIBS += -lm
 
 OBJS = util.o euler.o heun.o runge_kutta.o

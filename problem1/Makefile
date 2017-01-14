@@ -2,8 +2,9 @@
 
 ROOTDIR = ..
 LIBDIR = $(ROOTDIR)/lib
+INCDIR += -I$(ROOTDIR)/include
 
-CFLAGS += -std=c99 -Wall -Wpedantic -I$(LIBDIR)
+CFLAGS += -std=c99 -Wall -Wpedantic $(INCDIR)
 LDLIBS += -lm
 
 EXECUTABLES = 1 2 3
