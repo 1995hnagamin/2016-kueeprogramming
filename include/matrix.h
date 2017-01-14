@@ -34,6 +34,8 @@ void vec_print(Vector);
 
 void mat_print(Matrix);
 
+Element dot_product(Vector, Vector);
+
 Vector mult_mat_by_vec(Matrix, Vector);
 
 Matrix mult_mat_by_mat(Matrix, Matrix);

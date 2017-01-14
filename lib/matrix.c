@@ -73,6 +73,16 @@ void vec_free(Vector vec) {
   free(vec.ptr);
 }
 
+Element dot_product(Vector x, Vector y) {
+  assert(x.size == y.size);
+  size_t const size = x.size;
+  Element sum = 0;
+  for (size_t i = 0; i < size; ++i) {
+    sum += x.ptr[i] * y.ptr[i];
+  }
+  return sum;
+}
+
 Vector mult_mat_by_vec(Matrix m, Vector v) {
   assert(m.columns == v.size);
   Vector value = vec_alloc(m.rows);
