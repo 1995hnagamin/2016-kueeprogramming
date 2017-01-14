@@ -11,7 +11,7 @@ LDLIBS += -lm
 
 OBJS = jacobi.o
 EXECUTABLES = prob1
-GNUPLOTSCRIPTS =
+GNUPLOTSCRIPTS = 1_dissim.gnp
 OUTPUTS = $(EXECUTABLES:=.dat)
 IMAGES = $(GNUPLOTSCRIPTS:%.gnp=%.png)
 
@@ -24,6 +24,8 @@ all: $(EXECUTABLES) $(OUTPUTS) $(IMAGES)
 	gnuplot $<
 
 prob1: $(LIBDIR)/matrix.o $(LIBDIR)/lu.o
+
+1_dissim.png: prob1.dat
 
 clean:
 	rm -f $(EXECUTABLES) $(OBJS) $(OUTPUTS) $(IMAGES)
