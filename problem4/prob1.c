@@ -47,5 +47,27 @@ EigenPair do_power_method(Matrix A, Vector init, double epsilon) {
 }
 
 int main(void) {
+  size_t const n = 6;
+  double const A_arr[6][6] = {
+    { 2,  3,  4,  5,  6,  7},
+    { 3,  8,  9, 10, 11, 12},
+    { 4,  9, 13, 14, 15, 16},
+    { 5, 10, 14, 17, 18, 19},
+    { 6, 11, 15, 18, 20, 21},
+    { 7, 12, 16, 19, 21, 22}
+  };
+  Matrix A = MAT_INIT(6, 6, A_arr);
+
+  Vector u_0 = vec_init_by_const(n, 1);
+  normalize_vec_dstly(&u_0);
+
+  EigenPair p = do_power_method(A, u_0, 1e-15);
+  printf("Eigenvalue: %lf\n", p.value);
+  vec_print(p.vector);
+
+  mat_free(A);
+  vec_free(u_0);
+  vec_free(p.vector);
+
   return 0;
 }
