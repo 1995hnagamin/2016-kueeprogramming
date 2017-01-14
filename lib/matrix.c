@@ -87,6 +87,19 @@ Element euclid_norm(Vector v) {
   return sqrt(dot_product(v, v));
 }
 
+void normalize_vec_dstly(Vector* v) {
+  Element length = euclid_norm(*v);
+  for (size_t i = 0; i < v->size; ++i) {
+    v->ptr[i] /= length;
+  }
+}
+
+Vector normalize_vec(Vector v) {
+  Vector w = vec_copy(v);
+  normalize_vec_dstly(&w);
+  return w;
+}
+
 Vector mult_mat_by_vec(Matrix m, Vector v) {
   assert(m.columns == v.size);
   Vector value = vec_alloc(m.rows);

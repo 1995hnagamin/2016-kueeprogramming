@@ -38,6 +38,10 @@ Element dot_product(Vector, Vector);
 
 Element euclid_norm(Vector);
 
+Vector normalize_vec(Vector);
+
+void normalize_vec_dstly(Vector *);
+
 Vector mult_mat_by_vec(Matrix, Vector);
 
 Matrix mult_mat_by_mat(Matrix, Matrix);
