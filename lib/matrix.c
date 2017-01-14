@@ -113,6 +113,17 @@ Vector mult_mat_by_vec(Matrix m, Vector v) {
   return value;
 }
 
+void mult_mat_by_mat_from_left(Matrix a, Matrix * b) {
+  assert(a.rows == a.columns);
+  Matrix mat = mult_mat_by_mat(a, *b);
+  for (size_t i = 0; i < mat.rows; ++i) {
+    for (size_t j = 0; j < mat.columns; ++j) {
+      b->ptr[i][j] = mat.ptr[i][j];
+    }
+  }
+  mat_free(mat);
+}
+
 void mult_mat_by_mat_from_right(Matrix * a, Matrix b) {
   assert(b.rows == b.columns);
   Matrix mat = mult_mat_by_mat(*a, b);

@@ -50,6 +50,8 @@ Matrix mult_mat_by_mat(Matrix, Matrix);
 
 void mult_mat_by_mat_from_right(Matrix *, Matrix);
 
+void mult_mat_by_mat_from_left(Matrix, Matrix *);
+
 Matrix mult_mat_by_scalar(Matrix, Element);
 
 void mult_mat_by_scalar_dstly(Matrix *, Element);
