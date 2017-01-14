@@ -3,4 +3,6 @@
 
 int powi(int, int);
 
+double log2(double x);
+
 #endif
