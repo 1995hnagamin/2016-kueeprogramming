@@ -83,6 +83,10 @@ Element dot_product(Vector x, Vector y) {
   return sum;
 }
 
+Element euclid_norm(Vector v) {
+  return sqrt(dot_product(v, v));
+}
+
 Vector mult_mat_by_vec(Matrix m, Vector v) {
   assert(m.columns == v.size);
   Vector value = vec_alloc(m.rows);
