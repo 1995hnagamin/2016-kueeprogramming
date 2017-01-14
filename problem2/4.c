@@ -5,28 +5,6 @@
 #include "matrix.h"
 #include "lu.h"
 
-Matrix inverse_mat(Matrix A) {
-  assert(A.rows == A.columns);
-  size_t n = A.rows;
-
-  Matrix ret = mat_alloc(n, n);
-
-  for (size_t j = 0; j < n; ++j) {
-    Vector e = vec_init_by_const(n, 0);
-    e.ptr[j] = 1;
-
-    Vector x = solve_linear_system(A, e);
-    for (size_t i = 0; i < n; ++i) {
-      ret.ptr[i][j] = x.ptr[i];
-    }
-    
-    vec_free(x);
-    vec_free(e);
-  }
-
-  return ret;
-}
-
 void get_inverse_of_H(size_t n) {
   printf("n = %zu:\n", n);
   Matrix H = mat_alloc(n, n);
