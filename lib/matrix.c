@@ -180,15 +180,19 @@ Matrix transpose_mat(Matrix mat) {
   return tr;
 }
 
-void vec_print(Vector vec) {
-  printf("(");
+void vec_fprint(FILE * stream, Vector vec) {
+  fprintf(stream, "(");
   for (size_t i = 0; i < vec.size; ++i) {
     if (i > 0) {
-      printf(", ");
+      fprintf(stream, ", ");
     }
-    printf("%.8lf", vec.ptr[i]);
+    fprintf(stream, "%.8lf", vec.ptr[i]);
   }
-  printf(")\n");
+  fprintf(stream, ")\n");
+}
+
+void vec_print(Vector vec) {
+  vec_fprint(stdout, vec);
 }
 
 void mat_print(Matrix mat) {

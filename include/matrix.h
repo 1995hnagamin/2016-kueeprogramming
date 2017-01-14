@@ -30,6 +30,8 @@ Matrix mat_init(size_t, size_t, Element const *);
 
 Vector vec_init_by_const(size_t, Element);
 
+void vec_fprint(FILE *, Vector);
+
 void vec_print(Vector);
 
 void mat_print(Matrix);
