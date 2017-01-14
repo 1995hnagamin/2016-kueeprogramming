@@ -9,7 +9,7 @@ INCDIR += -I$(ROOTDIR)/include
 CFLAGS += -std=c99 -Wall -Wpedantic $(INCDIR)
 LDLIBS += -lm
 
-OBJS = jacobi.o
+OBJS = jacobi.o util2.o
 EXECUTABLES = prob1_1 prob1_2 prob2_1
 GNUPLOTSCRIPTS = 1_1_dissim.gnp
 OUTPUTS = $(EXECUTABLES:=.dat)
