@@ -26,7 +26,14 @@ EigenPair do_power_method(Matrix A, Vector init, double epsilon) {
   Vector x = vec_copy(init);
   normalize_vec_dstly(&x);
 
+  printf("# count R dissim");
+  for (size_t i = 0; i < x.size; ++i) {
+    printf(" x_%zu", i + 1);
+  }
+  printf("\n");
+
   double rayleigh_quo;
+  int count = 1;
   while (1) {
     Vector xnew = mult_mat_by_vec(A, x);
     normalize_vec_dstly(&xnew);
@@ -34,12 +41,19 @@ EigenPair do_power_method(Matrix A, Vector init, double epsilon) {
     rayleigh_quo = dot_product(x, xnew) / dot_product(x, x);
     double dissim = dissimilarity(x, xnew);
 
+    printf("%d %.8lf %.17lf", count, rayleigh_quo, dissim);
+    for (size_t i = 0; i < xnew.size; ++i) {
+      printf(" %.8lf", xnew.ptr[i]);
+    }
+    printf("\n");
+
     vec_free(x);
     x = xnew;
 
     if (dissim < epsilon) {
       break;
     }
+    ++count;
   }
 
   EigenPair p = { rayleigh_quo, x };
