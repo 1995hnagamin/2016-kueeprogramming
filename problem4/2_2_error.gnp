@@ -1,0 +1,3 @@
+set terminal png
+set output '2_2_error.png'
+plot 'prob2_2.dat' using 1:2

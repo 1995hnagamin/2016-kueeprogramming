@@ -11,7 +11,7 @@ LDLIBS += -lm
 
 OBJS = jacobi.o util2.o
 EXECUTABLES = prob1_1 prob1_2 prob2_1 prob2_2
-GNUPLOTSCRIPTS = 1_1_dissim.gnp 2_1_error.gnp
+GNUPLOTSCRIPTS = 1_1_dissim.gnp 2_1_error.gnp 2_2_error.gnp
 OUTPUTS = $(EXECUTABLES:=.dat)
 IMAGES = $(GNUPLOTSCRIPTS:%.gnp=%.png)
 
@@ -35,6 +35,7 @@ prob2_2: $(LIBDIR)/mathutil.o util2.o
 
 2_1_error.png: prob2_1.dat
 
+2_2_error.png: prob2_2.dat
 
 clean:
 	rm -f $(EXECUTABLES) $(OBJS) $(OUTPUTS) $(IMAGES)
