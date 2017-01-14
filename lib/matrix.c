@@ -143,6 +143,16 @@ Matrix add_mat_rows(Matrix a, size_t src, Element k, size_t dst) {
   return dup;
 }
 
+Matrix transpose_mat(Matrix mat) {
+  Matrix tr = mat_alloc(mat.columns, mat.rows);
+  for (size_t i = 0; i < mat.rows; ++i) {
+    for (size_t j = 0; j < mat.columns; ++j) {
+      tr.ptr[j][i] = mat.ptr[i][j];
+    }
+  }
+  return tr;
+}
+
 void vec_print(Vector vec) {
   printf("(");
   for (size_t i = 0; i < vec.size; ++i) {

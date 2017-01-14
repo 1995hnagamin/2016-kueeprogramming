@@ -49,3 +49,5 @@ void add_mat_rows_dstly(Matrix *, size_t,  Element, size_t);
 Matrix mult_mat_row_by_scalar(Matrix, size_t, Element);
 
 void mult_mat_row_by_scalar_dstly(Matrix *, size_t, Element);
+
+Matrix transpose_mat(Matrix);
