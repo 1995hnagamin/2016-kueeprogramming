@@ -10,7 +10,7 @@ CFLAGS += -std=c99 -Wall -Wpedantic $(INCDIR)
 LDLIBS += -lm
 
 OBJS = jacobi.o
-EXECUTABLES =
+EXECUTABLES = prob1
 GNUPLOTSCRIPTS =
 OUTPUTS = $(EXECUTABLES:=.dat)
 IMAGES = $(GNUPLOTSCRIPTS:%.gnp=%.png)
@@ -22,6 +22,8 @@ all: $(EXECUTABLES) $(OUTPUTS) $(IMAGES)
 
 .gnp.png :
 	gnuplot $<
+
+prob1: $(LIBDIR)/matrix.o $(LIBDIR)/lu.o
 
 clean:
 	rm -f $(EXECUTABLES) $(OBJS) $(OUTPUTS) $(IMAGES)
