@@ -1,4 +1,0 @@
-set terminal png
-set output '1_dissim.png'
-set logscale y
-plot 'prob1.dat' using 1:3
