@@ -7,4 +7,6 @@ double f(double);
 
 double trapezoidal_integral(Func, double, double, int);
 
+double simpson_integral(Func, double, double, int);
+
 #endif
