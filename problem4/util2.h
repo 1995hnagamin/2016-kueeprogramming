@@ -5,4 +5,6 @@ typedef double (*Func)(double);
 
 double f(double);
 
+double trapezoidal_integral(Func, double, double, int);
+
 #endif
