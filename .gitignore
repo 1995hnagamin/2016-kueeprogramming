@@ -1,4 +1,6 @@
 .*
+*.dat
 *.o
 *.out
+*.png
 !.gitignore
