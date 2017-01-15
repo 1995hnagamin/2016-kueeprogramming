@@ -1,4 +1,6 @@
 set terminal png
 set output '1_1_dissim.png'
+set xlabel 'number of times matrix multiplied'
+set ylabel '|r_min - r_max|'
 set logscale y
 plot 'prob1_1.dat' using 1:3
