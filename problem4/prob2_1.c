@@ -4,7 +4,7 @@
 #include "util2.h"
 
 int main(void) {
-  int const limit = 25;
+  int const limit = 28;
   for (int k = 0; k <= limit; ++k) {
     double const answer = 1.0 / 20;
     double const approx = trapezoidal_integral(f, 0, 1, k);

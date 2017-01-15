@@ -21,7 +21,7 @@ double simpson(Func f, double a, double b) {
 }
 
 int main(void) {
-  int const limit = 25;
+  int const limit = 28;
   for (int k = 1; k <= limit; ++k) {
     double const answer = 1.0 / 20;
     double const approx = rec_integral(f, simpson, k, 0, 1);
