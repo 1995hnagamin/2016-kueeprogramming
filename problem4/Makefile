@@ -27,7 +27,7 @@ prob1_1: $(LIBDIR)/matrix.o $(LIBDIR)/lu.o
 
 prob1_2: jacobi.o $(LIBDIR)/matrix.o $(LIBDIR)/lu.o
 
-prob2_1: $(LIBDIR)/mathutil.o
+prob2_1: $(LIBDIR)/mathutil.o util2.o
 
 prob2_2: $(LIBDIR)/mathutil.o util2.o
 

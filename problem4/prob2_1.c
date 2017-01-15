@@ -1,8 +1,7 @@
 #include <math.h>
 #include <stdio.h>
 #include "mathutil.h"
-
-typedef double (*Func)(double);
+#include "util2.h"
 
 int main(void) {
   int const limit = 10;
