@@ -1,3 +1,6 @@
 set terminal png
 set output '2_1_error.png'
+set title 'Absolute error of integral calculated with N = 2^k subintervals'
+set xlabel 'k'
+set ylabel 'log_2 E'
 plot 'prob2_1.dat' using 1:2
