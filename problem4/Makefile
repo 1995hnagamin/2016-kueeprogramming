@@ -15,6 +15,7 @@ GNUPLOTSCRIPTS = 1_1_dissim.gnp 2_1_error.gnp 2_2_error.gnp
 OUTPUTS = $(EXECUTABLES:=.dat)
 IMAGES = $(GNUPLOTSCRIPTS:%.gnp=%.png)
 
+GNUPLOTSCRIPTS = 1_1_dissim.gnp 2_1_error.gnp 2_2_error.gnp 2_2b_error.gnp
 all: $(EXECUTABLES) $(OUTPUTS) $(IMAGES)
 
 %.dat: %
@@ -40,6 +41,8 @@ prob3: $(LIBDIR)/mathutil.o util2.o
 2_1_error.png: prob2_1.dat
 
 2_2_error.png: prob2_2.dat
+
+2_2b_error.png: prob2_2b.dat
 
 clean:
 	rm -f $(EXECUTABLES) $(OBJS) $(OUTPUTS) $(IMAGES)

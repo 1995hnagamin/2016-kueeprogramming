@@ -1,0 +1,6 @@
+set terminal png
+set output '2_2b_error.png'
+set title 'Absolute error of recursive integral with depth n'
+set xlabel 'n'
+set ylabel 'log_2 E'
+plot 'prob2_2b.dat' using 1:2
