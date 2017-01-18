@@ -15,7 +15,6 @@ GNUPLOTSCRIPTS = 1_1_dissim.gnp 2_1_error.gnp 2_2_error.gnp
 OUTPUTS = $(EXECUTABLES:=.dat)
 IMAGES = $(GNUPLOTSCRIPTS:%.gnp=%.png)
 
-GNUPLOTSCRIPTS = 1_1_dissim.gnp 2_1_error.gnp 2_2_error.gnp 2_2b_error.gnp
 all: $(EXECUTABLES) $(OUTPUTS) $(IMAGES)
 
 %.dat: %
