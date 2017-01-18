@@ -10,7 +10,7 @@ CFLAGS += -std=c99 -Wall -Wpedantic $(INCDIR) -O3
 LDLIBS += -lm
 
 OBJS = jacobi.o util2.o
-EXECUTABLES = prob1_1 prob1_2 prob2_1 prob2_2 prob2_2b prob2_2c prob3
+EXECUTABLES = prob1_1 prob1_2 prob2_1 prob2_2 prob2_2b prob2_2c prob2_2d prob3
 GNUPLOTSCRIPTS = 1_1_dissim.gnp 2_1_error.gnp 2_2_error.gnp
 OUTPUTS = $(EXECUTABLES:=.dat)
 IMAGES = $(GNUPLOTSCRIPTS:%.gnp=%.png)
