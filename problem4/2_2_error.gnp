@@ -3,6 +3,7 @@ set output '2_2_error.png'
 set title 'Absolute error of integral calculated with N = 2^k subintervals'
 set xlabel 'k'
 set ylabel 'log_2 E'
+set yrange [-60:0]
 f(x) = a * x + b
 fit [0:15] f(x) "prob2_2.dat" using 1:2 via a,b
 plot 'prob2_2.dat' using 1:2, f(x) title sprintf("(%f)x + %f", a, b)
