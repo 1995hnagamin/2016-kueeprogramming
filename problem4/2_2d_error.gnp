@@ -1,0 +1,12 @@
+set terminal png
+set output '2_2d_error.png'
+set title 'Absolute error of integral calculated with N subintervals (float)'
+set xlabel 'log_2 N'
+set ylabel 'log_2 E'
+set xrange [8:30]
+set yrange [-30:-5]
+f(x) = a * x + b
+fit [18:30] f(x) "prob2_2d.dat" using 3:2:(sqrt(abs($2))) via a,b
+plot 'prob2_2d.dat' index 0 using 3:2 title "powers of 1.1", \
+     'prob2_2d.dat' index 1 using 3:2 title "powers of 2", \
+      f(x) title sprintf("(%f)x + %f", a, b)
