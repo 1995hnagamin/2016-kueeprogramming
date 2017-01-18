@@ -41,8 +41,7 @@ EigenPair do_power_method(Matrix A, Vector init, double epsilon) {
   double rayleigh_quo;
   int count = 1;
   while (1) {
-    Vector xnew = mult_mat_by_vec(A, x);
-    normalize_vec_dstly(&xnew);
+    Vector xnew = change_direction(A, x);
 
     rayleigh_quo = dot_product(x, xnew) / dot_product(x, x);
     double dissim = dissimilarity(x, xnew);
