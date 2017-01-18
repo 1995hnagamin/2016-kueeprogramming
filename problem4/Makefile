@@ -6,7 +6,7 @@ ROOTDIR = ..
 LIBDIR = $(ROOTDIR)/lib
 INCDIR += -I$(ROOTDIR)/include
 
-CFLAGS += -std=c99 -Wall -Wpedantic $(INCDIR)
+CFLAGS += -std=c99 -Wall -Wpedantic $(INCDIR) -O3
 LDLIBS += -lm
 
 OBJS = jacobi.o util2.o
