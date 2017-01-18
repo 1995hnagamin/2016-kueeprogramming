@@ -22,6 +22,12 @@ double dissimilarity(Vector numer, Vector denom) {
   return fabs(r_max - r_min);
 }
 
+Vector change_direction(Matrix A, Vector x) {
+  Vector xnew = mult_mat_by_vec(A, x);
+  normalize_vec_dstly(&xnew);
+  return xnew;
+}
+
 EigenPair do_power_method(Matrix A, Vector init, double epsilon) {
   Vector x = vec_copy(init);
   normalize_vec_dstly(&x);
