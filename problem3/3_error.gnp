@@ -1,5 +1,7 @@
 set terminal png
 set output '3_error.png'
+set xlabel 'p'
+set ylabel 'log_2 E_r'
 f(x) = a * x + b
 fit [0:18] f(x) 'prob3_2.dat' using 1:3 via a,b
 plot 'prob3_2.dat' using 1:3, f(x) title sprintf("(%f)x + (%f)", a, b)
