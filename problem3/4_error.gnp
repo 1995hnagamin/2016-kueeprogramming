@@ -1,5 +1,6 @@
 set terminal png
 set output '4_error.png'
+set yrange [-50:0]
 set xlabel 'p'
 set ylabel 'log_2 E_r'
 f(x) = a * x + b
