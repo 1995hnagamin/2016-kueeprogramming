@@ -1,4 +1,3 @@
 set terminal png
 set output '3_error.png'
-set logscale y
-plot 'prob3_2.dat' using 1:2
+plot 'prob3_2.dat' using 1:3
